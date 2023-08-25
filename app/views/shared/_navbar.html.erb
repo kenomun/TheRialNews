@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <ul>
+    <% if user_signed_in? %>
+      <li>
+        <% if current_user.name %>
+          Hola: <%= current_user.name %>
+        <% else %>
+          Hola <%= current_user.email %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "Edit profile", edit_user_registration_path, method: :delete %>
+      </li>
+      <li>
+        <%= button_to "Sing out", destroy_user_session_path, method: :delete %>
+      </li>
+    <% else %>
+      Registrate o conectate
+      <li>
+        <%= link_to "Sing up", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "Sing in", new_user_session_path %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
