@@ -1,0 +1,24 @@
+<%= render @post %>
+<div>
+  <% if user_signed_in? %>
+    <% if current_user.admin? %>
+      <%= link_to "Edit this post", edit_post_path(@post) %> |
+      <%= button_to "Destroy this post", @post, method: :delete %>
+    <% end %>
+    <% if @comments.present? %>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong>Comentario:</strong>
+          <%= comment.content %>
+          <% if current_user.admin? %>
+            <%= button_to "Destroy this comment", [@post, comment], method: :delete %>
+          <% end %>
+        </p>
+      <% end %>
+    <% else %>
+      <p>No hay comentarios disponibles.</p>
+    <% end %>
+    <%= render "comments/form", comment: Comment.new %>
+  <% end %>
+  <%= link_to "Back to posts", posts_path %>
+</div>

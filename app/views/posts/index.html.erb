@@ -1,0 +1,20 @@
+<h1>Noticias</h1>
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <%= link_to "Crear Noticia", new_post_path, class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+<div id="posts" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-3">
+  <% @posts.each do |post| %>
+    <div class="col">
+      <div class="card">
+        <!-- Contenido de la tarjeta, por ejemplo: -->
+        <div class="card-body">
+          <h5 class="card-title"><%= post.title %></h5>
+          <p class="card-text"><%= post.description %></p>
+          <%= link_to "Ver Noticia", post, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
