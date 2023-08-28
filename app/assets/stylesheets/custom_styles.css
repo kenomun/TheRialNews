@@ -1,0 +1,39 @@
+body {
+  background-image: linear-gradient(to left,#b7a2ca, #351330);
+  height: 100vh;
+  color: #ffffff;
+}
+
+.card {
+  background-image: linear-gradient(to left,#b7a2ca, #351330);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}  
+
+.card-movie {
+	background-color: #ffffff;
+	color: #ffffff;
+	border: 2px solid #ffffff;
+}
+
+/* Estilos para la navbar */
+.navbar {
+  background-image: linear-gradient(to left,#b7a2ca, #351330); /* Color oscuro similar al fondo */
+}
+
+.navbar-brand {
+  color: #b7a2ca;
+  font-weight: bold;
+}
+
+.navbar-brand:hover {
+  color: #ffffff; /* Cambiar a tu color deseado cuando el cursor esté sobre el título */
+}
+
+.navbar-nav .nav-link {
+  color: #351330;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff;; /* Color similar al degradado del fondo */
+}

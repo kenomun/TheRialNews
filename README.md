@@ -1,24 +1,39 @@
-# README
+# The Rial News
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este es el repositorio para "The Rial News", una aplicación web para compartir noticias.
 
-Things you may want to cover:
+## Descripción
 
-* Ruby version
+"The Rial News" es una aplicación web que permite a los usuarios registrados compartir noticias y comentarios. Utiliza Ruby on Rails y está diseñada con características como autenticación de usuarios utilizando Devise, gestión de noticias.
 
-* System dependencies
+## Características
 
-* Configuration
+- Registro y autenticación de usuarios utilizando Devise
+- Creación, edición y eliminación de noticias por parte del usuario administrador
+- Comentarios en noticias por parte de usuarios registrados.
+- Eliminación de comentarios parte del usuario administrador.
+- visualización de noticias por cualquier usuario que visite la pagina.
 
-* Database creation
 
-* Database initialization
+## Demostración
 
-* How to run the test suite
+Puedes ver una demostración en vivo de "The Rial News" en este enlace.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Requisitos
 
-* Deployment instructions
+- Ruby versión 3.1.2
+- Rails versión 7.0.7
 
-* ...
+
+## Cómo Clonar y Ejecutar el Proyecto
+
+1. Asegúrate de tener instalado Ruby y Rails en tus sistema.
+2. Clona este repositorio en tu máquina local:
+
+https://github.com/kenomun/TheRialNews.git
+
+3. Instala las dependencias: bundle install
+4. Crear base de datos: rails db:create 
+4. Correr migraciones: rails db:migrate
+5. Levantar aplicación: rails server
+6. Abre tu navegador y navega a http://localhost:3000 para ver la aplicación en funcionamiento.
