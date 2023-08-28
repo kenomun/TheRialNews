@@ -17,7 +17,11 @@ Este es el repositorio para "The Rial News", una aplicación web para compartir 
 
 ## Demostración
 
-Puedes ver una demostración en vivo de "The Rial News" en este enlace.
+Puedes ver una demostración en vivo de "The Rial News" en este enlace. 
+[Demo](https://mysterious-harbor-11951-b0a8debdfc94.herokuapp.com/)
+
+*nota: en el demo las imágenes cargadas con seed no se visualizan pero de forma local si.
+
 
 ## Requisitos
 
@@ -30,13 +34,14 @@ Puedes ver una demostración en vivo de "The Rial News" en este enlace.
 1. Asegúrate de tener instalado Ruby y Rails en tus sistema.
 2. Clona este repositorio en tu máquina local:
 
-https://github.com/kenomun/TheRialNews.git
+[Repositorio en GitHub](https://github.com/kenomun/TheRialNews)
+
 
 3. Instala las dependencias: bundle install
 4. Crear base de datos: rails db:create 
 4. Correr migraciones: rails db:migrate
 6. crear usuario administrador y 6 noticias de pruebas: rails db:seed
-    correo de usuario creado: admin@example.com
-    contraseña: 123456
+    - correo de usuario creado: admin@example.com
+    - contraseña: 123456
 5. Levantar aplicación: rails server
 6. Abre tu navegador y navega a http://localhost:3000 para ver la aplicación en funcionamiento.
