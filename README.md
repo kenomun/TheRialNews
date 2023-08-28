@@ -35,5 +35,8 @@ https://github.com/kenomun/TheRialNews.git
 3. Instala las dependencias: bundle install
 4. Crear base de datos: rails db:create 
 4. Correr migraciones: rails db:migrate
+6. crear usuario administrador y 6 noticias de pruebas: rails db:seed
+    correo de usuario creado: admin@example.com
+    contraseña: 123456
 5. Levantar aplicación: rails server
 6. Abre tu navegador y navega a http://localhost:3000 para ver la aplicación en funcionamiento.
