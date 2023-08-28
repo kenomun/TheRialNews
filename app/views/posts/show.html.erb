@@ -1,24 +1,86 @@
-<%= render @post %>
-<div>
-  <% if user_signed_in? %>
-    <% if current_user.admin? %>
-      <%= link_to "Edit this post", edit_post_path(@post) %> |
-      <%= button_to "Destroy this post", @post, method: :delete %>
-    <% end %>
-    <% if @comments.present? %>
-      <% @comments.each do |comment| %>
-        <p>
-          <strong>Comentario:</strong>
-          <%= comment.content %>
-          <% if current_user.admin? %>
-            <%= button_to "Destroy this comment", [@post, comment], method: :delete %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= @post.title %></h5>
+          <% if @post.image.attached? %>
+            <div class="text-center">
+              <%= image_tag @post.image, class: "img-fluid mb-3" if @post.image.attached? %>
+            </div>
           <% end %>
-        </p>
-      <% end %>
-    <% else %>
-      <p>No hay comentarios disponibles.</p>
-    <% end %>
-    <%= render "comments/form", comment: Comment.new %>
-  <% end %>
-  <%= link_to "Back to posts", posts_path %>
+          <h5 class="card-title">Articulo: </h5>
+          <p class="card-text"><%= @post.description %></p>
+          <div class="d-flex justify-content-end">
+            <% if user_signed_in? && current_user.admin? %>
+              <%= link_to "Editar noticia", edit_post_path(@post), class: "btn btn-warning btn-sm me-2" %>
+              <%= button_to "Eliminar noticia", @post, method: :delete, class: "btn btn-danger btn-sm" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% if @comments.present? %>
+  <div class="container mt-3">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Comentarios:</h5>
+            <% @comments.each do |comment| %>
+              <div class="card mb-2">
+                <div class="card-body">
+                  <p class="card-text"><strong>Usuario: <%= comment.user.name %></strong></p>
+                  <p class="card-text"><%= comment.content %></p>
+                  <% if current_user&.admin? %>
+                    <div class="d-flex justify-content-end">
+                      <%= button_to "Eliminar comentario", [@post, comment], method: :delete, class: "btn btn-danger btn-sm" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="container mt-3">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Comentarios: </h5>
+            <p class="card-text mt-2">No hay comentarios disponibles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% if user_signed_in? %>
+  <%= render "comments/form", comment: Comment.new, style: "width: 100%;" %>
+<% else %>
+  <div class="container mt-3">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Agregar Comentario:</h5>
+            <p class="card-text mt-2">Registrate o ingresa con tu perfil para poder comentar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <%= link_to "Volver a las noticias", posts_path, class: "btn btn-secondary mb-5" %>
+    </div>
+  </div>
 </div>

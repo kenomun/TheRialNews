@@ -5,7 +5,11 @@
   </p>
   <p>
     <strong>Image:</strong>
-    <%= post.image %>
+    <% if post.image.attached? %>
+      <%= image_tag post.image, class: "img-fluid" %>
+    <% else %>
+      No image attached.
+    <% end %>
   </p>
   <% if local_assigns[:show_description] != false %>
     <p>

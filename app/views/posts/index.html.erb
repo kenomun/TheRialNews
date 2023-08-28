@@ -8,11 +8,16 @@
   <% @posts.each do |post| %>
     <div class="col">
       <div class="card">
-        <!-- Contenido de la tarjeta, por ejemplo: -->
         <div class="card-body">
-          <h5 class="card-title"><%= post.title %></h5>
-          <p class="card-text"><%= post.description %></p>
-          <%= link_to "Ver Noticia", post, class: "btn btn-primary" %>
+          <h5 class="card-title mb-2"><%= post.title %></h5>
+          <div class="text-center mb-3">
+            <% if post.image.attached? %>
+              <%= image_tag post.image, class: "img-fluid", style: "max-height: 200px; width: 100%;" %>
+            <% end %>
+          </div>
+          <div class="text-center">
+            <%= link_to "Ver Noticia", post, class: "btn btn-primary" %>
+          </div>
         </div>
       </div>
     </div>

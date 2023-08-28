@@ -30,4 +30,31 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        email: "Correo electrónico"
+        password: "Contraseña"
+        name: "Nombre"
+        phone: "Número de contacto"
+        age: "Edad"
+        password_confirmation: "Confirmación de contraseña"
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "no puede estar en blanco"
+            phone:
+              blank: "no puede estar en blanco"
+            age:
+              blank: "no puede estar en blanco"
+            email:
+              blank: "no puede estar en blanco"
+            password:
+              blank: "no puede estar en blanco"
+            password_confirmation:
+              blank: "no puede estar en blanco"
+
+
+

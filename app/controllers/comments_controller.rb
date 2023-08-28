@@ -1,5 +1,13 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+
+  before_action only: [:new, :create] do
+    authorize_request(["admin"])
+  end
+  before_action only: [:edit, :update, :destroy] do
+    authorize_request(["admin"])
+  end
 
   # GET /comments or /comments.json
   def index
@@ -27,10 +35,10 @@ class CommentsController < ApplicationController
     
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to post_path(@post), notice: "Comment was successfully created." }
+        format.html { redirect_to post_path(@post), notice: "El comentario se a creado de forma existosa." }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { redirect_to post_path(@post), alert: "Error: Comment content can't be blank." }
+        format.html { redirect_to post_path(@post), alert: "La casilla no pude estar en blanco al crear un nuevo comntario." }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
@@ -54,9 +62,9 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if current_user.admin?
       @comment.destroy
-      redirect_to post_path(@comment.post), notice: 'Comment was successfully destroyed.'
+      redirect_to post_path(@comment.post), notice: 'El comentario se a liminado de forma existosa.'
     else
-      redirect_to post_path(@comment.post), alert: 'You do not have permission to delete this comment.'
+      redirect_to post_path(@comment.post), alert: 'No tienes permiso para eliminar comntarios.'
     end
   end
 
